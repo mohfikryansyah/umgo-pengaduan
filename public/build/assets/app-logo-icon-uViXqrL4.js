@@ -1,1 +1,0 @@
-import{j as s}from"./app-w6QwSvNn.js";import{c as r}from"./utils-jAU0Cazi.js";function a({props:n,className:o}){return s.jsx("img",{src:"/assets/images/logouniv.png",className:r(o),alt:"Logo Univ"})}export{a as A};

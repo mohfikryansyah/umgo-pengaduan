@@ -13,10 +13,10 @@ interface Props {
 
 export default function StatistikSection({ data }: Props) {
     return (
-        <div className="w-full p-8 py-20">
+        <div className="w-full p-8 py-20 bg-sky-50 rounded-br-[20rem]">
             <div className="mx-auto flex max-w-6xl flex-col gap-4 text-center">
                 <h1 className="text-4xl font-semibold text-gray-800">Statistik Pengaduan Mahasiswa</h1>
-                <p className="mx-auto max-w-3xl text-lg leading-8 text-gray-600">
+                <p className="mx-auto max-w-xl text-lg leading-8 text-gray-600">
                     Lihat ringkasan jumlah pengaduan yang telah diajukan, status penanganannya, dan progres penyelesaian oleh pihak kampus.
                     Transparan, terstruktur, dan terus diperbarui.
                 </p>

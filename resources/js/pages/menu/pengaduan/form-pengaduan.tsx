@@ -1,9 +1,11 @@
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { FileUpload } from '@/components/ui/file-upload';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Required } from '@/components/ui/required';
 import { Textarea } from '@/components/ui/textarea';
 import { useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
@@ -13,6 +15,7 @@ type FormPengaduan = {
     judul: string;
     isi: string;
     bidang: 'Akademik' | 'Kemahasiswaan' | 'Keuangan dan Umum' | 'Khusus';
+    berkas: File | File[] | null;
 };
 
 export default function FormPengaduan() {
@@ -20,7 +23,12 @@ export default function FormPengaduan() {
         judul: '',
         isi: '',
         bidang: 'Akademik',
+        berkas: null,
     });
+
+    const handleFileUpload = (berkas: File[]) => {
+        setData('berkas', berkas);
+    };
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
@@ -31,7 +39,8 @@ export default function FormPengaduan() {
                 toast.success('Berhasil mengirim pengaduan');
                 reset();
             },
-            onError: () => {
+            onError: (e) => {
+                console.log(e);
                 toast.error('Gagal mengirim pengaduan!');
             },
         });
@@ -105,14 +114,29 @@ export default function FormPengaduan() {
                         </RadioGroup>
                     </div>
                     <div className="grid gap-2">
-                        <Label htmlFor="judul">Judul</Label>
+                        <Label htmlFor="judul">
+                            Judul
+                            <Required />
+                        </Label>
                         <Input id="judul" onChange={(e) => setData('judul', e.target.value)} value={data.judul} />
                         <InputError message={errors.judul} />
                     </div>
                     <div className="grid gap-2">
-                        <Label htmlFor="isi">Isi Pengaduan</Label>
+                        <Label htmlFor="isi">
+                            Isi Pengaduan
+                            <Required />
+                        </Label>
                         <Textarea id="isi" value={data.isi} onChange={(e) => setData('isi', e.target.value)} />
                         <InputError message={errors.isi} />
+                    </div>
+                    <div className="grid gap-2">
+                        <Label>
+                            Lampiran
+                            <Required />
+                        </Label>
+                        <div className="mx-auto min-h-96 w-full rounded-lg border border-dashed border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black">
+                            <FileUpload isMultiple={true} onChange={handleFileUpload} />
+                        </div>
                     </div>
 
                     <Button disabled={processing}>Submit</Button>

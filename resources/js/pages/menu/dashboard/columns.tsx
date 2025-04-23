@@ -141,6 +141,11 @@ export const columns: ColumnDef<Pengaduan>[] = [
                 router.put(route('pengaduan.update.validasi', { pengaduan, validasi_rektor }));
             };
 
+            const handleApprove = (pengaduan: Pengaduan, validasi_rektor: boolean) => {
+                setDisableButton(true);
+                router.put(route('pengaduan.update.validasi', { pengaduan, validasi_rektor }));
+            };
+
             const { auth } = usePage<SharedData>().props;
 
             return (
@@ -200,7 +205,9 @@ export const columns: ColumnDef<Pengaduan>[] = [
                                                 </AlertDialogHeader>
                                                 <AlertDialogFooter>
                                                     <AlertDialogCancel>Batal</AlertDialogCancel>
-                                                    <AlertDialogAction className="bg-sky-800">Ya, saya yakin!</AlertDialogAction>
+                                                    <AlertDialogAction className="bg-sky-800" onClick={() => handleApprove(row.original, true)}>
+                                                        Ya, saya yakin!
+                                                    </AlertDialogAction>
                                                 </AlertDialogFooter>
                                             </AlertDialogContent>
                                         </AlertDialog>

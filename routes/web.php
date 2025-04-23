@@ -1,13 +1,16 @@
 <?php
 
-use App\Http\Controllers\ExportPengaduanController;
-use App\Http\Controllers\HomeController;
+use App\Models\User;
 use Inertia\Inertia;
+use App\Models\Pengaduan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\ExportPengaduanController;
 use App\Http\Controllers\TanggapanPengaduanController;
-use App\Models\Pengaduan;
+use App\Http\Controllers\UserController;
+use App\Http\Resources\AuthUserResource;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -16,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::put('pengaduan/update-validasi-rektor/{pengaduan}', [PengaduanController::class, 'updateValidasi'])->name('pengaduan.update.validasi');
     Route::resource('tanggapan', TanggapanPengaduanController::class);
     Route::get('/export-pdf', [ExportPengaduanController::class, 'export']);
+    Route::get('/users', [UserController::class, 'index'])->name('daftar.user');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('delete.user');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {

@@ -93,27 +93,8 @@ export default function ShowPengaduan({ pengaduan }: Props) {
                             </Alert>
                         )}
 
-                        <DetailPengaduan title={pengaduan.judul} description={pengaduan.isi} bidang={pengaduan.bidang} className="border-b pb-3" />
-                        {/* <div className="flex max-w-xl gap-x-5 border-b border-b-gray-100 pb-2">
-                            <div className="flex max-w-fit gap-x-2">
-                                <div className="h-11 w-8 overflow-hidden">
-                                    <img src={'/storage/' + user.avatar} alt="" />
-                                </div>
-                                <div className="grid flex-1 text-left text-sm leading-tight">
-                                    <span className="text-sm font-medium text-gray-800">Fiqriansyah.jpg</span>
-                                    <span className="text-sm text-gray-600">104.23 KB</span>
-                                </div>
-                            </div>
-                            <div className="flex max-w-fit gap-x-2">
-                                <div className="h-11 w-8 overflow-hidden">
-                                    <img src={'/storage/' + user.avatar} alt="" />
-                                </div>
-                                <div className="grid flex-1 text-left text-sm leading-tight">
-                                    <span className="text-sm font-medium text-gray-800">Fiqriansyah.jpg</span>
-                                    <span className="text-sm text-gray-600">104.23 KB</span>
-                                </div>
-                            </div>
-                        </div> */}
+                        <DetailPengaduan pengaduan={pengaduan} className="border-b pb-3" />
+                       
                         {hasRole(auth.user, ['admin', 'warek_1', 'warek_2', 'warek_3', 'rektor']) && <FormTanggapan pengaduan={pengaduan} />}
 
                         <Timeline items={pengaduan.tanggapans} />

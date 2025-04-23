@@ -3,9 +3,9 @@ import { motion } from 'motion/react';
 
 export default function HeroSection() {
     return (
-        <div className="flex md:h-[90vh] w-full items-center justify-center bg-gradient-to-b from-sky-800 from-10% to-white">
+        <div className="flex w-full items-center justify-center bg-sky-800 md:h-[60dvh]">
             <div className="w-full max-w-3xl">
-                <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-slate-800 md:text-4xl lg:text-7xl dark:text-slate-300">
+                <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-gray-50 md:text-4xl lg:text-7xl dark:text-slate-300">
                     {'Suaramu Didengar, Aksimu Bermakna'.split(' ').map((word, index) => (
                         <motion.span
                             key={index}
@@ -33,7 +33,7 @@ export default function HeroSection() {
                         duration: 0.3,
                         delay: 0.8,
                     }}
-                    className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-600 dark:text-neutral-400"
+                    className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-gray-300 dark:text-neutral-400"
                 >
                     Sampaikan keluhan, masukan, atau saran dengan mudah. Aplikasi pengaduan kampus yang cepat, transparan, dan responsif.
                 </motion.p>
@@ -52,7 +52,7 @@ export default function HeroSection() {
                 >
                     <button
                         onClick={() => router.get(route('pengaduan.create'))}
-                        className="w-60 transform rounded-lg bg-sky-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-sky-900 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                        className="w-60 transform rounded-lg bg-yellow-400 px-6 py-2 font-medium text-gray-800 transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-500 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                     >
                         Sampaikan Keluhan
                     </button>

@@ -44,7 +44,6 @@ export interface User {
     email_verified_at: string | null;
     created_at: string;
     updated_at: string;
-    size: string;
     roles_list: string[];
     [key: string]: unknown;
 }
@@ -67,6 +66,7 @@ export interface Pengaduan {
 export interface Berkas {
     id: number | string;
     path_berkas: string;
+    size: number;
     created_at: string;
     updated_at: string;
 }

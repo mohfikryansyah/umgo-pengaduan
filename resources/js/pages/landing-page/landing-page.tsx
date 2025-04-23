@@ -3,7 +3,7 @@ import { useInitials } from '@/hooks/use-initials';
 import GuestLayout from '@/layouts/guest-layout';
 import { Pengaduan } from '@/types';
 import { ChartData } from '../menu/dashboard/admin/chart';
-import Footer from './Footer';
+import Footer from './footer';
 import HeroSection from './hero-section';
 import StatistikSection from './statistik-section';
 
@@ -23,7 +23,7 @@ export default function LandingPage({ pengaduans, chartData, countAllPengaduan, 
             <div className="flex h-full w-full flex-1 flex-col">
                 <HeroSection />
                 <StatistikSection data={{ chartData, countAllPengaduan, countPengaduanDiproses, countPengaduanSelesai }} />
-                <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 p-4">
+                <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 p-4 py-20">
                     <h1 className="text-4xl font-semibold text-gray-800">Daftar Pengaduan</h1>
                     <ListPengaduan items={pengaduans} />
                 </div>

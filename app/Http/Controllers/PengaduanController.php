@@ -52,6 +52,7 @@ class PengaduanController extends Controller
             'judul' => 'required|max:100',
             'isi' => 'required',
             'bidang' => 'required|in:Akademik,Kemahasiswaan,Keuangan dan Umum,Khusus',
+            'berkas.*' => 'required|mimes:jpg,jpeg,png|file|max:1024'
         ]);
 
         DB::beginTransaction();
@@ -68,6 +69,17 @@ class PengaduanController extends Controller
                 'pengaduan_id' => $pengaduan->id,
                 'tindakan' => 'pengaduan masih dalam proses peninjauan',
             ]);
+
+            if ($request->hasFile('berkas')) {
+                foreach ($validatedData['berkas'] as $berkas) {
+                    $path = $berkas->store('berkas_pengaduan', 'public');
+
+                    $pengaduan->berkas()->create([
+                        'path_berkas' => $path,
+                        'pengaduan_id' => $pengaduan->id
+                    ]);
+                }
+            }
 
             DB::commit();
 
@@ -119,7 +131,7 @@ class PengaduanController extends Controller
             'validasi_rektor' => 'required|boolean'
         ]);
 
-        $test = $pengaduan->update([
+        $pengaduan->update([
             'validasi_rektor' => $validatedData['validasi_rektor']
         ]);
 
