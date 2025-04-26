@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('berkas_pengaduans', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('pengaduan_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('pengaduan_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignUuid('pengaduan_khusus_id')->nullable()->constrained('pengaduan_khusus')->cascadeOnDelete();
             $table->string('path_berkas');
             $table->timestamps();
         });

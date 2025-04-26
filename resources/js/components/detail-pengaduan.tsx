@@ -9,7 +9,6 @@ interface Props {
 }
 
 export default function DetailPengaduan({ pengaduan, className }: Props) {
-    console.log(pengaduan);
     return (
         <div className={cn('space-y-0.5', className)}>
             <div className="flex w-full items-center justify-between">

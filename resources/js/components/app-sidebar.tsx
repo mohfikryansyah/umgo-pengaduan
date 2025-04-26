@@ -4,7 +4,7 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, FilePenLine, Folder, LayoutGrid, UsersIcon } from 'lucide-react';
+import { BookOpen, BookText, FilePenLine, Folder, LayoutGrid, UsersIcon } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -12,18 +12,24 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: route('dashboard'),
         icon: LayoutGrid,
-        roles: ['admin', 'warek_1', 'warek_2', 'warek_3']
+        roles: ['admin', 'warek_1', 'warek_2', 'warek_3', 'mahasiswa', 'rektor'],
     },
     {
-        title: 'Pengaduan',
+        title: 'Pengaduan Umum',
         href: route('pengaduan.index'),
         icon: FilePenLine,
-        // roles: ['mahasiswa', 'admin']
+    },
+    {
+        title: 'Pengaduan Khusus',
+        href: route('pengaduan-khusus.index'),
+        icon: BookText,
+        roles: ['admin', 'rektor'],
     },
     {
         title: 'Daftar Pengguna',
         href: route('daftar.user'),
-        icon: UsersIcon
+        icon: UsersIcon,
+        roles: ['admin'],
     }
 ];
 

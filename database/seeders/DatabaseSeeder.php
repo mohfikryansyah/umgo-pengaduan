@@ -37,6 +37,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'mahasiswa@gmail.com',
             'nim' => '531420047',
         ])->assignRole($mahasiswaRole);
+        
+        User::factory()->create([
+            'name' => 'Mahasiswa2',
+            'username' => 'mahasiswa2',
+            'avatar' => 'avatars/fiqriansyah.jpg',
+            'email' => 'mahasiswa2@gmail.com',
+            'nim' => '531420042',
+        ])->assignRole($mahasiswaRole);
 
         User::factory()->create([
             'name' => 'Warek 1',

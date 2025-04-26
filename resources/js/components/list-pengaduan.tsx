@@ -68,7 +68,7 @@ export default function ListPengaduan({ items }: { items: Pengaduan[] }) {
 
     return (
         <>
-            <div className="mb-6 max-w-3xl items-center gap-2 not-md:space-y-2 md:flex">
+            <div className="mb-4 mt-6 max-w-3xl items-center gap-2 not-md:space-y-2 md:flex">
                 <Input
                     placeholder="Cari pengaduan..."
                     className="text-sm"
@@ -153,7 +153,7 @@ export default function ListPengaduan({ items }: { items: Pengaduan[] }) {
             {filteredItems.length > 0 ? (
                 <>
                     {filteredItems.slice(0, visibleCount).map((item) => (
-                        <Card key={item.id}>
+                        <Card key={item.id} className='mb-4'>
                             <CardContent>
                                 <div className="items-center justify-between not-md:space-y-3 md:flex">
                                     <div className="flex gap-2">

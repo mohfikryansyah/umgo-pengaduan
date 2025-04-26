@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { hasRole } from '@/helpers';
 import AppLayout from '@/layouts/app-layout';
 import { BreadcrumbItem, Pengaduan, SharedData } from '@/types';
-import { Link, usePage } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import { columns } from './columns';
 import ExportPengaduan from './export-pengaduan';
 
@@ -20,6 +20,7 @@ export default function Index({ pengaduans }: { pengaduans: Pengaduan[] }) {
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
+            <Head title='Pengaduan Umum'/>
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <HeadingSmall title="Halaman Pengaduan" />
                 <DataTable columns={columns} data={pengaduans}>

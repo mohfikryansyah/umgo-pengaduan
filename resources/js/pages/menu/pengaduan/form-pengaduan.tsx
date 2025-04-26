@@ -15,7 +15,7 @@ type FormPengaduan = {
     judul: string;
     isi: string;
     bidang: 'Akademik' | 'Kemahasiswaan' | 'Keuangan dan Umum' | 'Khusus';
-    berkas: File | File[] | null;
+    berkas: File | File[];
 };
 
 export default function FormPengaduan() {
@@ -23,7 +23,7 @@ export default function FormPengaduan() {
         judul: '',
         isi: '',
         bidang: 'Akademik',
-        berkas: null,
+        berkas: [],
     });
 
     const handleFileUpload = (berkas: File[]) => {
@@ -137,6 +137,7 @@ export default function FormPengaduan() {
                         <div className="mx-auto min-h-96 w-full rounded-lg border border-dashed border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black">
                             <FileUpload isMultiple={true} onChange={handleFileUpload} />
                         </div>
+                        <InputError message={errors.berkas} />
                     </div>
 
                     <Button disabled={processing}>Submit</Button>

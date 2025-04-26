@@ -52,7 +52,8 @@ class PengaduanController extends Controller
             'judul' => 'required|max:100',
             'isi' => 'required',
             'bidang' => 'required|in:Akademik,Kemahasiswaan,Keuangan dan Umum,Khusus',
-            'berkas.*' => 'required|mimes:jpg,jpeg,png|file|max:1024'
+            'berkas' => 'required|array|min:1',
+            'berkas.*' => 'required|mimes:jpg,jpeg,png|file|max:1024',
         ]);
 
         DB::beginTransaction();

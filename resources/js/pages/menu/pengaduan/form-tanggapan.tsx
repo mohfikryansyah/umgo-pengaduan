@@ -36,10 +36,6 @@ export default function FormTanggapan({ pengaduan }: Props) {
 
     return (
         <>
-            <div className="mt-2 mb-5">
-                <Badge className="border border-blue-300 bg-blue-50 text-blue-500">Berikan tanggapan</Badge>
-            </div>
-
             <Card className="mb-5">
                 <CardContent className="space-y-5">
                     <div className="flex gap-4">

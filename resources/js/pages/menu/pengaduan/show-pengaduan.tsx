@@ -71,7 +71,7 @@ export default function ShowPengaduan({ pengaduan }: Props) {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
-                <div className="flex w-full gap-x-3 not-lg:flex-col not-lg:gap-y-3">
+                <div className="flex w-full gap-x-5 not-lg:flex-col not-lg:gap-y-3">
                     <div className="w-full max-w-4xl not-lg:order-2">
                         {pengaduan.validasi_rektor === 1 ? (
                             <Alert className="mb-3 border-green-500 bg-green-100">
@@ -94,7 +94,11 @@ export default function ShowPengaduan({ pengaduan }: Props) {
                         )}
 
                         <DetailPengaduan pengaduan={pengaduan} className="border-b pb-3" />
-                       
+
+                        <div className="mt-2 mb-5">
+                            <Badge className="border border-blue-300 bg-blue-50 text-blue-500">Tanggapan</Badge>
+                        </div>
+
                         {hasRole(auth.user, ['admin', 'warek_1', 'warek_2', 'warek_3', 'rektor']) && <FormTanggapan pengaduan={pengaduan} />}
 
                         <Timeline items={pengaduan.tanggapans} />

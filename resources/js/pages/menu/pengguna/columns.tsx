@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { hasRole } from '@/helpers';
 import { useInitials } from '@/hooks/use-initials';
-import { Pengaduan, SharedData, User } from '@/types';
+import { SharedData, User } from '@/types';
 import { router, usePage } from '@inertiajs/react';
 import { ColumnDef } from '@tanstack/react-table';
 import { format } from 'date-fns';
@@ -55,7 +55,14 @@ export const columns: ColumnDef<User>[] = [
             return (
                 <div className="flex items-center">
                     <Avatar className="size-8 overflow-hidden rounded-full">
-                        <AvatarImage src={row.original.name} alt={row.original.name} />
+                        <Dialog>
+                            <DialogTrigger>
+                                <AvatarImage src={'/storage/' + row.original.avatar} alt={row.original.name} />
+                            </DialogTrigger>
+                            <DialogContent>
+                                <AvatarImage src={'/storage/' + row.original.avatar} alt={row.original.name} />
+                            </DialogContent>
+                        </Dialog>
                         <AvatarFallback className="rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
                             {getInitials(row.original.name)}
                         </AvatarFallback>
@@ -108,7 +115,15 @@ export const columns: ColumnDef<User>[] = [
         accessorKey: 'role_names',
         id: 'role',
         header: 'Role',
+        cell: ({ row }) => {
+            const role = (row.original.role_names as string[])[0];
+
+            const roleLabel = role.startsWith('warek_') ? role.replace('warek_', 'Wakil Rektor ') : role === 'rektor' ? 'Rektor' : role;
+
+            return <span className="ml-3">{roleLabel}</span>;
+        },
     },
+
     {
         accessorKey: 'created_at',
         id: 'Tanggal bergabung',

@@ -18,8 +18,9 @@ class UserController extends Controller
                 return [
                     'id' => $user->id,
                     'name' => $user->name,
-                    'username   ' => $user->username   ,
+                    'username   ' => $user->username,
                     'email' => $user->email,
+                    'avatar' => $user->avatar,
                     'created_at' => $user->created_at,
                     'role_names' => $user->getRoleNames(),
                 ];

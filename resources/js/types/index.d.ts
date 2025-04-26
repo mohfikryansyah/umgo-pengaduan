@@ -63,6 +63,22 @@ export interface Pengaduan {
     user: User;
 }
 
+export interface PengaduanKhusus {
+    id: number | string;
+    judul: string;
+    kronologi: string;
+    tempat_kejadian: string;
+    waktu_kejadian: Date;
+    validasi_rektor: boolean | number;
+    created_at: string;
+    updated_at: string;
+    berkas: Berkas[];
+    status: Status[];
+    latest_status: Status;
+    // tanggapans: Tanggapan[];
+    user: User;
+}
+
 export interface Berkas {
     id: number | string;
     path_berkas: string;

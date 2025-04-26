@@ -30,8 +30,7 @@ class Pengaduan extends Model
             ->selectRaw('
             DATE_FORMAT(created_at, "%M") as month,
             MONTH(created_at) as month_number,
-            SUM(CASE WHEN bidang = "Khusus" THEN 1 ELSE 0 END) as khusus,
-            SUM(CASE WHEN bidang != "Khusus" THEN 1 ELSE 0 END) as tidak_khusus
+            COUNT(*) as tidak_khusus
         ')
             ->where('created_at', '>=', now()->subMonths(6)->startOfMonth())
             ->groupBy('month', 'month_number')

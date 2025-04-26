@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <h2>Laporan Pengaduan E-Lapor</h2>
+    <h2>Laporan Pengaduan</h2>
     <p class="range">{{ $range }}</p>
 
     <table>
