@@ -142,23 +142,23 @@ export default function Footer() {
         //         </div>
         //     </div>
         // </footer>
-        <footer className="flex w-full flex-col items-center justify-center rounded-tl-[10rem] bg-sky-900 py-20">
+        <footer className="flex w-full flex-col items-center justify-center rounded-tl-[10rem] bg-sky-900 py-20 px-4">
             <div className="mx-auto w-full max-w-5xl space-y-10">
-                <div className="flex items-center justify-between">
-                    <img src="/assets/images/logouniv.png" className="size-10 md:size-22" alt="" />
-                    <ul className="mt-4 mr-5 flex flex-col rounded-lg bg-transparent p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse">
+                <div className="flex md:flex-row flex-col items-center justify-between">
+                    <img src="/assets/images/logouniv.png" className="size-22" alt="" />
+                    <ul className="not-md:hidden mt-4 mr-5 flex flex-col rounded-lg bg-transparent p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse">
                         {NAV_ITEMS.map((item) => (
                             <NavLink key={item.label} {...item} />
                         ))}
                     </ul>
                     <Link
                         href={route('register')}
-                        className="inline-block transform rounded-sm bg-yellow-400 px-5 py-1.5 text-sm leading-normal font-medium transition-all duration-300 hover:-translate-y-0.5"
+                        className="not-md:hidden inline-block transform rounded-sm bg-yellow-400 px-5 py-1.5 text-sm leading-normal font-medium transition-all duration-300 hover:-translate-y-0.5"
                     >
                         Register
                     </Link>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex md:flex-row flex-col gap-4 items-center justify-between">
                     <p className="text-gray-100">© Universitas Muhamadiyah Gorontalo</p>
                     <div className="flex items-center gap-4">
                         <Instagram className="text-white" />

@@ -26,11 +26,11 @@ export default function LandingPage({ pengaduanKhusus, pengaduans, chartData, co
                 <HeroSection />
                 <StatistikSection data={{ chartData, countAllPengaduan, countPengaduanDiproses, countPengaduanSelesai }} />
                 <div className="mx-auto flex w-full max-w-6xl flex-col p-4 py-20">
-                    <h1 className="text-4xl font-semibold text-gray-800">Daftar Pengaduan Umum</h1>
+                    <h1 className="md:text-4xl text-3xl font-semibold text-gray-800">Daftar Pengaduan Umum</h1>
                     <ListPengaduan items={pengaduans} />
                 </div>
                 <div className="mx-auto flex w-full max-w-6xl flex-col p-4 py-20">
-                    <h1 className="text-4xl font-semibold text-gray-800">Daftar Pengaduan Khusus</h1>
+                    <h1 className="md:text-4xl text-3xl font-semibold text-gray-800">Daftar Pengaduan Khusus</h1>
                     <ListPengaduanKhusus items={pengaduanKhusus} />
                 </div>
                 <Footer />

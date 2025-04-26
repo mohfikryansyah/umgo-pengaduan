@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 export default function HeroSection() {
     return (
-        <div className="flex w-full items-center justify-center bg-sky-800 md:h-[60dvh]">
+        <div className="flex w-full items-center justify-center bg-sky-800 h-[60dvh] px-4">
             <div className="w-full max-w-3xl">
                 <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-gray-50 md:text-4xl lg:text-7xl dark:text-slate-300">
                     {'Suaramu Didengar, Aksimu Bermakna'.split(' ').map((word, index) => (

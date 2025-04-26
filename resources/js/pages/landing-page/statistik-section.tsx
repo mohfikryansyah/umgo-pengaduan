@@ -20,7 +20,7 @@ export default function StatistikSection({ data }: Props) {
                     Lihat ringkasan jumlah pengaduan yang telah diajukan, status penanganannya, dan progres penyelesaian oleh pihak kampus.
                     Transparan, terstruktur, dan terus diperbarui.
                 </p>
-                <div className="mt-10 flex items-center justify-around">
+                <div className="mt-10 flex md:flex-row flex-col gap-8 items-center justify-around">
                     <div className="">
                         <h1 className="font-atma text-5xl text-sky-800">{data.countAllPengaduan}</h1>
                         <p className="font-semibold text-gray-700">Total Pengaduan</p>
