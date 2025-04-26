@@ -17,9 +17,17 @@ class PengaduanKhususController extends Controller
      */
     public function index()
     {
-        return Inertia::render('menu/pengaduan-khusus/index', [
-            'pengaduans' => PengaduanKhusus::latest()->get(),
-        ]);
+        /** @var \App\Models\User */
+        $user = Auth::user();
+
+        if ($user->hasRole('admin') || $user->hasRole('rektor')) {
+            $pengaduans = PengaduanKhusus::latest()->get();
+        } elseif ($user->hasRole('mahasiswa')) {
+            $pengaduans = PengaduanKhusus::where('user_id', $user->id)->latest()->get();
+        }
+
+        
+        return Inertia::render('menu/pengaduan-khusus/index', compact('pengaduans'));
     }
 
     /**

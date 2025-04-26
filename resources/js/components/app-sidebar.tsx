@@ -23,7 +23,7 @@ const mainNavItems: NavItem[] = [
         title: 'Pengaduan Khusus',
         href: route('pengaduan-khusus.index'),
         icon: BookText,
-        roles: ['admin', 'rektor'],
+        roles: ['admin', 'rektor', 'mahasiswa'],
     },
     {
         title: 'Daftar Pengguna',
