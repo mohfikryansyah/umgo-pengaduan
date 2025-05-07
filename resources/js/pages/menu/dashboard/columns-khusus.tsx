@@ -138,12 +138,12 @@ export const columnsKhusus: ColumnDef<PengaduanKhusus>[] = [
 
             const handleReject = (pengaduan: PengaduanKhusus, validasi_rektor: boolean) => {
                 setDisableButton(true);
-                router.put(route('pengaduan-khusus.update.validasi', { pengaduan, validasi_rektor }));
+                router.put(route('pengaduan.khusus.update.validasi', { pengaduan, validasi_rektor }));
             };
 
             const handleApprove = (pengaduan: PengaduanKhusus, validasi_rektor: boolean) => {
                 setDisableButton(true);
-                router.put(route('pengaduan-khusus.update.validasi', { pengaduan, validasi_rektor }));
+                router.put(route('pengaduan.khusus.update.validasi', { pengaduan, validasi_rektor }));
             };
 
             const { auth } = usePage<SharedData>().props;

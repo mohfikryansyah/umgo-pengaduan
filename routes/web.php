@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
         ->parameters(['pengaduan-khusus' => 'pengaduanKhusus'])
         ->middlewareFor(['create', 'store'], 'role:mahasiswa')
         ->middlewareFor(['destroy', 'update'], 'role:admin');
-    Route::put('pengaduan/update-validasi-rektor/{pengaduanKhusus}', [PengaduanKhususController::class, 'updateValidasi'])->name('pengaduan.khusus.update.validasi')->middleware('role:rektor');
+    Route::put('pengaduan-khusus/update-validasi-rektor/{pengaduanKhusus}', [PengaduanKhususController::class, 'updateValidasi'])->name('pengaduan.khusus.update.validasi')->middleware('role:rektor');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
