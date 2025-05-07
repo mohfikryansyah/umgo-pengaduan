@@ -173,9 +173,9 @@ export const columns: ColumnDef<User>[] = [
             return (
                 <>
                     <div className="flex items-center">
-                        <Button variant="ghost" size="sm" onClick={() => router.get(route('pengaduan.show', { pengaduan: row.original }))}>
+                        {/* <Button variant="ghost" size="sm" onClick={() => router.get(route('pengaduan.show', { pengaduan: row.original }))}>
                             <Eye className="h-4 w-4 text-gray-800" />
-                        </Button>
+                        </Button> */}
 
                         {hasRole(auth.user, ['admin']) && (
                             <Dialog open={openDialog} onOpenChange={(open) => setOpenDialog(open)}>
