@@ -21,6 +21,7 @@ class PengaduanKhususResource extends JsonResource
             'kronologi' => $this->kronologi,
             'tempat_kejadian' => $this->tempat_kejadian,
             'waktu_kejadian' => $this->waktu_kejadian,
+            'validasi_rektor' => $this->validasi_rektor,
             'created_at' => $this->created_at,
             'user' => new AuthUserResource($this->whenLoaded('user')),
             'berkas' => $this->berkas,

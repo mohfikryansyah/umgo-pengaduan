@@ -42,7 +42,6 @@ const statusColorMap: Record<string, string> = {
 };
 
 export default function ShowPengaduan({ pengaduan }: Props) {
-    console.log(pengaduan);
     const formatCreatedAtPengaduan = format(pengaduan.created_at, 'EEEE, d MMMM y', { locale: id });
     const formatCreatedAtStatusPengaduan = format(pengaduan.latest_status.created_at, 'EEEE, d MMMM y', { locale: id });
     const user = pengaduan.user;
@@ -59,7 +58,7 @@ export default function ShowPengaduan({ pengaduan }: Props) {
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
-        put(route('pengaduan.update', { pengaduan }), {
+        put(route('pengaduan-khusus.update', { pengaduan }), {
             onSuccess: () => {
                 toast.success('Berhasil memperbarui status'), reset();
             },

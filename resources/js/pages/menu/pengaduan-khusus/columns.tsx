@@ -146,12 +146,30 @@ export const columns: ColumnDef<PengaduanKhusus>[] = [
 
             const handleReject = (pengaduanKhusus: PengaduanKhusus, validasi_rektor: boolean) => {
                 setDisableButton(true);
-                router.put(route('pengaduan.khusus.update.validasi', { pengaduanKhusus, validasi_rektor }));
+                router.put(route('pengaduan.khusus.update.validasi', { pengaduanKhusus, validasi_rektor }), undefined, {
+                    onSuccess: () => {
+                        toast.success('Pengaduan berhasil divalidasi!');
+                        setDisableButton(false);
+                    },
+                    onError: () => {
+                        toast.error('Terjadi kesalahan saat memvalidasi pengaduan.');
+                        setDisableButton(false);
+                    },
+                });
             };
 
             const handleApprove = (pengaduanKhusus: PengaduanKhusus, validasi_rektor: boolean) => {
                 setDisableButton(true);
-                router.put(route('pengaduan.khusus.update.validasi', { pengaduanKhusus, validasi_rektor }));
+                router.put(route('pengaduan.khusus.update.validasi', { pengaduanKhusus, validasi_rektor }), undefined, {
+                    onSuccess: () => {
+                        toast.success('Pengaduan berhasil divalidasi!');
+                        setDisableButton(false);
+                    },
+                    onError: () => {
+                        toast.error('Terjadi kesalahan saat memvalidasi pengaduan.');
+                        setDisableButton(false);
+                    },
+                });
             };
 
             const { auth } = usePage<SharedData>().props;
@@ -159,7 +177,11 @@ export const columns: ColumnDef<PengaduanKhusus>[] = [
             return (
                 <>
                     <div className="flex items-center">
-                        <Button variant="ghost" size="sm" onClick={() => router.get(route('pengaduan-khusus.show', { pengaduanKhusus: row.original }))}>
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => router.get(route('pengaduan-khusus.show', { pengaduanKhusus: row.original }))}
+                        >
                             <Eye className="h-4 w-4 text-gray-800" />
                         </Button>
 
@@ -208,7 +230,7 @@ export const columns: ColumnDef<PengaduanKhusus>[] = [
                                             </AlertDialogTrigger>
                                             <AlertDialogContent>
                                                 <AlertDialogHeader>
-                                                    <AlertDialogTitle>Apakah Anda yakin ingin memvalidasi pengaduan ini?</AlertDialogTitle>
+                                                    <AlertDialogTitle>Apakah Anda yakin ingin menyetujui pengaduan ini?</AlertDialogTitle>
                                                     <AlertDialogDescription>Aksi ini tidak dapat dibatalkan.</AlertDialogDescription>
                                                 </AlertDialogHeader>
                                                 <AlertDialogFooter>
